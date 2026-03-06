@@ -9,9 +9,11 @@ import { Banner } from './shared/banner/banner';
 import { Card } from './shared/card/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { Home } from './pages/home/home';
+import { Container } from './shared/container/container';
 
 @NgModule({
-  declarations: [App, Header, Footer, Banner, Card],
+  declarations: [App, Header, Footer, Banner, Card, Home, Container],
   imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatButtonModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
