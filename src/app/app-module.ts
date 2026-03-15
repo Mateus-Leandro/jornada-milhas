@@ -11,10 +11,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Home } from './pages/home/home';
 import { Container } from './shared/container/container';
+import { CardBusca } from './shared/card-busca/card-busca';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [App, Header, Footer, Banner, Card, Home, Container],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatButtonModule],
+  declarations: [App, Header, Footer, Banner, Card, Home, Container, CardBusca],
+  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatCardModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
