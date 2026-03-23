@@ -5,3 +5,14 @@
   row-gap: 16px;
   margin-bottom: 40px;
 }
+
+.cards-depoimento {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.nome {
+  margin-top: auto; /* empurra pra baixo */
+}

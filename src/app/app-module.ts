@@ -13,9 +13,10 @@ import { Home } from './pages/home/home';
 import { Container } from './shared/container/container';
 import { CardBusca } from './shared/card-busca/card-busca';
 import { MatCardModule } from '@angular/material/card';
+import { CardDepoimento } from './shared/card-depoimento/card-depoimento';
 
 @NgModule({
-  declarations: [App, Header, Footer, Banner, Card, Home, Container, CardBusca],
+  declarations: [App, Header, Footer, Banner, Card, Home, Container, CardBusca, CardDepoimento],
   imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatCardModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

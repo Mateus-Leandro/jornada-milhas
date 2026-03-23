@@ -1,0 +1,15 @@
+.example-card {
+  max-width: 320px;
+  margin-bottom: 8px;
+  min-height: 250px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nome {
+  margin-top: auto;
+}
