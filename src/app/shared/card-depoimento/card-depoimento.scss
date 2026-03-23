@@ -1,13 +1,16 @@
-.example-card {
+.card {
   max-width: 320px;
   margin-bottom: 8px;
   min-height: 250px;
+  background-color: #fef3ff;
+  border: none;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   flex: 1;
+  background-color: #fef3ff;
 }
 
 .nome {
