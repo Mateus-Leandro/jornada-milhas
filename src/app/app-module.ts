@@ -14,10 +14,32 @@ import { Container } from './shared/container/container';
 import { CardBusca } from './shared/card-busca/card-busca';
 import { MatCardModule } from '@angular/material/card';
 import { CardDepoimento } from './shared/card-depoimento/card-depoimento';
+import { FormBusca } from './shared/form-busca/form-busca';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
-  declarations: [App, Header, Footer, Banner, Card, Home, Container, CardBusca, CardDepoimento],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatCardModule],
+  declarations: [
+    App,
+    Header,
+    Footer,
+    Banner,
+    Card,
+    Home,
+    Container,
+    CardBusca,
+    CardDepoimento,
+    FormBusca,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
