@@ -17,6 +17,11 @@ import { CardDepoimento } from './shared/card-depoimento/card-depoimento';
 import { FormBusca } from './shared/form-busca/form-busca';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -39,8 +44,16 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     MatButtonToggleModule,
     MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatDatepickerModule,
   ],
-  providers: [provideBrowserGlobalErrorListeners()],
+  providers: [
+    provideNativeDateAdapter(),
+    provideBrowserGlobalErrorListeners(),
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+  ],
   bootstrap: [App],
 })
 export class AppModule {}
