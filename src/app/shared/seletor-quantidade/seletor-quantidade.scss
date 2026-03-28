@@ -1,0 +1,21 @@
+button {
+  img {
+    vertical-align: middle;
+  }
+}
+
+.controle {
+  display: flex;
+  align-items: center;
+}
+
+.quantidade {
+  padding: 0 12px;
+}
+
+.decrementar {
+  background: #d9d9d9;
+}
+.incrementar {
+  background: #e8def8;
+}

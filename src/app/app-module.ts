@@ -22,6 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
+import { Modal } from './shared/modal/modal';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SeletorQuantidade } from './shared/seletor-quantidade/seletor-quantidade';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { provideNativeDateAdapter, MAT_DATE_LOCALE } from '@angular/material/cor
     CardBusca,
     CardDepoimento,
     FormBusca,
+    Modal,
+    SeletorQuantidade,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,7 @@ import { provideNativeDateAdapter, MAT_DATE_LOCALE } from '@angular/material/cor
     MatInputModule,
     MatIconModule,
     MatDatepickerModule,
+    MatDialogModule,
   ],
   providers: [
     provideNativeDateAdapter(),
