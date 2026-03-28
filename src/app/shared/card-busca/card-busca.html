@@ -1,9 +1,9 @@
 <mat-card class="card-busca" appearance="outlined">
-    <img mat-card-image src="assets/imagens/Veneza.png" alt="Imagem de Veneza">
+    <img mat-card-image [src]="imagem()" [alt]="alt()">
     <mat-card-content>
         <ul>
-            <li>Veneza</li>
-            <li>R$ 500</li>
+            <li>{{nomeLocal()}}</li>
+            <li>R$ {{valor()}}</li>
         </ul>
     </mat-card-content>
     <mat-card-actions>
