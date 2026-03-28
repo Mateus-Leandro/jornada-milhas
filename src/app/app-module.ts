@@ -25,6 +25,7 @@ import { provideNativeDateAdapter, MAT_DATE_LOCALE } from '@angular/material/cor
 import { Modal } from './shared/modal/modal';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SeletorQuantidade } from './shared/seletor-quantidade/seletor-quantidade';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { SeletorQuantidade } from './shared/seletor-quantidade/seletor-quantidad
     MatIconModule,
     MatDatepickerModule,
     MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideNativeDateAdapter(),
