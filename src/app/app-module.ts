@@ -28,6 +28,8 @@ import { SeletorQuantidade } from './shared/components/seletor-quantidade/seleto
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrlPipe } from './shared/pipes/brl-pipe';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { DropdownUf } from './shared/components/form-busca/dropdown-uf/dropdown-uf';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { BrlPipe } from './shared/pipes/brl-pipe';
     Modal,
     SeletorQuantidade,
     BrlPipe,
+    DropdownUf,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { BrlPipe } from './shared/pipes/brl-pipe';
     MatDatepickerModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
   ],
   providers: [
     provideNativeDateAdapter(),

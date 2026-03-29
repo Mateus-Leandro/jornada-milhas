@@ -10,10 +10,28 @@ export class FormBuscaService {
   constructor() {
     this.formBusca = new FormGroup({
       somenteIda: new FormControl(false),
+      origem: new FormControl(null),
+      destino: new FormControl(null),
     });
   }
 
-  get somenteIda() {
+  obterControle(nome: string): FormControl {
+    const control = this.formBusca.get(nome);
+    if (!control) {
+      throw new Error(`FormControl com nome "${nome}" não existe.`);
+    }
+    return control as FormControl;
+  }
+
+  get somenteIda(): boolean {
     return this.formBusca.get('somenteIda')?.value || false;
+  }
+
+  get origem(): string {
+    return this.formBusca.get('origem')?.value || '';
+  }
+
+  get destino(): string {
+    return this.formBusca.get('destino')?.value || '';
   }
 }
