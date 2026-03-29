@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PromocaoService } from '../../core/services/promocao.service';
+import { Promocao } from '../../core/types/promocao';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
+  promocoes: Promocao[] = [];
 
+  constructor(private servicoPromocao: PromocaoService) {}
+
+  ngOnInit(): void {
+    this.servicoPromocao.listar().subscribe((resposta) => {
+      this.promocoes = resposta;
+    });
+  }
 }

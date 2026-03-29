@@ -3,18 +3,11 @@
     <app-form-busca />
     <h2>Promoções</h2>
     <div class="card-wrapper">
-        <app-card-busca imagem="assets/imagens/Atacama.png" alt="Imagem do Atacama" nomeLocal="Atacama"
-            valor="6.575,00"></app-card-busca>
-        <app-card-busca imagem="assets/imagens/Veneza.png" alt="Imagem de Veneza" nomeLocal="Veneza"
-            valor="7.000,00"></app-card-busca>
-        <app-card-busca imagem="assets/imagens/Patagonia.png" alt="Imagem da Patagonia" nomeLocal="Patagonia"
-            valor="12.250,00"></app-card-busca>
-        <app-card-busca imagem="assets/imagens/Grand Canyon.png" alt="Imagem do Grand Canyon" nomeLocal="Grand Canyon"
-            valor="5.500,00"></app-card-busca>
-        <app-card-busca imagem="assets/imagens/Turquia.png" alt="Imagem da Turquia" nomeLocal="Turquia"
-            valor="6.250,00"></app-card-busca>
-        <app-card-busca imagem="assets/imagens/Cordilheira dos Andes.png" alt="Imagem das Cordilheira dos Andes"
-            nomeLocal="Cordilheira dos Andes" valor="10.000,00"></app-card-busca>
+        @for (promocao of promocoes; track $index) {
+        <app-card-busca [imagem]="promocao.imagem" [alt]="promocao.destino" [nomeLocal]="promocao.destino"
+            [valor]="promocao.preco | brl">
+        </app-card-busca>
+        }
     </div>
     <h2>Depoimentos</h2>
     <div class="cards-depoimento">
