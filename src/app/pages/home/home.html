@@ -3,7 +3,7 @@
     <app-form-busca />
     <h2>Promoções</h2>
     <div class="card-wrapper">
-        @for (promocao of promocoes; track $index) {
+        @for (promocao of promocoes(); track $index) {
         <app-card-busca [imagem]="promocao.imagem" [alt]="promocao.destino" [nomeLocal]="promocao.destino"
             [valor]="promocao.preco | brl">
         </app-card-busca>
