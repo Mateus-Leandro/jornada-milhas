@@ -26,6 +26,7 @@ import { Modal } from './shared/modal/modal';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SeletorQuantidade } from './shared/seletor-quantidade/seletor-quantidade';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,11 +56,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatDatepickerModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     provideNativeDateAdapter(),
     provideBrowserGlobalErrorListeners(),
+    provideHttpClient(withInterceptorsFromDi()),
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
   ],
   bootstrap: [App],
