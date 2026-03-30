@@ -1,7 +1,7 @@
 import { Component, input, OnInit, signal, computed } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UnidadeFederativa } from '../../../../core/types/unidade-federativa';
-import { UnidadeFederativaService } from '../../../../core/services/unidade-federativa.service';
+import { UnidadeFederativaService } from '../../../../core/services/unidade-federativa/unidade-federativa.service';
 
 @Component({
   selector: 'app-dropdown-uf',

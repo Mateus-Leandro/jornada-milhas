@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { PromocaoService } from '../../core/services/promocao.service';
+import { PromocaoService } from '../../core/services/promocao/promocao.service';
 import { Promocao } from '../../core/types/promocao';
 
 @Component({

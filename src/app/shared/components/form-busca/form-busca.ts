@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Modal } from '../modal/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FormBuscaService } from '../../../core/services/form-busca.service';
+import { FormBuscaService } from '../../../core/services/form-busca/form-busca.service';
 
 @Component({
   selector: 'app-form-busca',
