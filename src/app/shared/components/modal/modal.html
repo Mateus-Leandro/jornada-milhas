@@ -28,8 +28,14 @@
             <h3>Categoria</h3>
             <div>
                 <mat-chip-listbox aria-label="Seleção de categorias">
-                    <mat-chip-option selected>Econômica</mat-chip-option>
-                    <mat-chip-option>Executiva</mat-chip-option>
+                    <mat-chip-option value="Econômica" [selected]="formBuscaService.tipo === 'Econômica'"
+                        (selectionChange)="formBuscaService.alterarTipo($event, 'Econômica')">
+                        Econômica
+                    </mat-chip-option>
+                    <mat-chip-option value="Executiva" [selected]="formBuscaService.tipo === 'Executiva'"
+                        (selectionChange)="formBuscaService.alterarTipo($event, 'Executiva')">
+                        Executiva
+                    </mat-chip-option>
                 </mat-chip-listbox>
             </div>
         </div>
