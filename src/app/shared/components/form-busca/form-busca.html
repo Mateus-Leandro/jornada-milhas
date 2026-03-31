@@ -16,7 +16,7 @@
         <div class="flex-container">
             <app-dropdown-uf label="Origem" iconePrefix="flight_takeoff"
                 [control]="formBuscaService.obterControle('origem')" />
-            <button mat-icon-button type="button" class="sync-button">
+            <button mat-icon-button type="button" class="sync-button" (click)="formBuscaService.trocarOrigemDestino()">
                 <mat-icon>sync_alt</mat-icon>
             </button>
             <app-dropdown-uf label="Destino" iconePrefix="flight_land"
