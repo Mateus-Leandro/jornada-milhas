@@ -9,4 +9,8 @@ import { FormBuscaService } from '../../../core/services/form-busca/form-busca.s
 })
 export class FormBusca {
   constructor(public formBuscaService: FormBuscaService) {}
+
+  buscar() {
+    console.log(this.formBuscaService.formBusca.value);
+  }
 }

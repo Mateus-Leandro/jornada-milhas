@@ -18,6 +18,15 @@ export class FormBuscaService {
       origem: new FormControl(null),
       destino: new FormControl(null),
       tipo: new FormControl<TipoPassagem>('Econômica'),
+      adultos: new FormControl(1),
+      criancas: new FormControl(0),
+      bebes: new FormControl(0),
+    });
+  }
+
+  openDialog() {
+    this.dialog.open(Modal, {
+      width: '50%',
     });
   }
 
@@ -29,10 +38,25 @@ export class FormBuscaService {
     return control as FormControl;
   }
 
-  openDialog() {
-    this.dialog.open(Modal, {
-      width: '50%',
-    });
+  getDescricaoPassageiros(): string {
+    let descricao = '';
+    const adultos = this.adultos;
+    const criancas = this.criancas;
+    const bebes = this.bebes;
+
+    if (adultos > 0) {
+      descricao += `${adultos} adulto${adultos > 1 ? 's ' : ''}`;
+    }
+
+    if (criancas > 0) {
+      descricao += `${descricao ? ', ' : ''}${criancas} crianca${criancas > 1 ? 's' : ''}`;
+    }
+
+    if (bebes > 0) {
+      descricao += `${descricao ? ', ' : ''}${bebes} bebe${bebes > 1 ? 's' : ''}`;
+    }
+
+    return descricao;
   }
 
   get somenteIda(): boolean {
@@ -49,6 +73,18 @@ export class FormBuscaService {
 
   get tipo(): TipoPassagem {
     return this.formBusca.get('tipo')?.value || '';
+  }
+
+  get adultos(): number {
+    return this.formBusca.get('adultos')?.value || 0;
+  }
+
+  get criancas(): number {
+    return this.formBusca.get('criancas')?.value || 0;
+  }
+
+  get bebes(): number {
+    return this.formBusca.get('bebes')?.value || 0;
   }
 
   alterarTipo(evento: MatChipSelectionChange, tipoPassagem: TipoPassagem) {

@@ -1,5 +1,5 @@
 <app-card variant="secondary">
-    <form [formGroup]="formBuscaService.formBusca">
+    <form [formGroup]="formBuscaService.formBusca" (ngSubmit)="buscar()">
         <h2>Passagens</h2>
         <div class="flex-container">
             <mat-button-toggle-group aria-label="Tipo de passagem" formControlName="somenteIda">
@@ -36,7 +36,7 @@
                 <mat-datepicker #pickerVolta></mat-datepicker>
             </mat-form-field>
 
-            <button matButton="filled" type="button">Buscar</button>
+            <button matButton="filled">Buscar</button>
         </div>
     </form>
 </app-card>

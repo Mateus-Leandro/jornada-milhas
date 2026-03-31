@@ -6,21 +6,21 @@
                 <li class="titulo">Adultos</li>
                 <li>(Acima de 12 anos)</li>
                 <li>
-                    <app-seletor-quantidade [(valor)]="adultos" [minimo]="0" />
+                    <app-seletor-quantidade [formControl]="formBuscaService.obterControle('adultos')" />
                 </li>
             </ul>
             <ul>
                 <li class="titulo">Crianças</li>
                 <li>(Entre 2 e 11 anos)</li>
                 <li>
-                    <app-seletor-quantidade [(valor)]="criancas" [minimo]="0" />
+                    <app-seletor-quantidade [formControl]="formBuscaService.obterControle('criancas')" />
                 </li>
             </ul>
             <ul>
                 <li class="titulo">Bebês</li>
                 <li>Até 2 anos</li>
                 <li>
-                    <app-seletor-quantidade [(valor)]="bebes" [minimo]="0" />
+                    <app-seletor-quantidade [formControl]="formBuscaService.obterControle('bebes')" />
                 </li>
             </ul>
         </div>
