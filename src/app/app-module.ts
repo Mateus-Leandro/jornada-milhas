@@ -30,6 +30,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { BrlPipe } from './shared/pipes/brl-pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUf } from './shared/components/form-busca/dropdown-uf/dropdown-uf';
+import { Busca } from './pages/busca/busca';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { DropdownUf } from './shared/components/form-busca/dropdown-uf/dropdown-
     SeletorQuantidade,
     BrlPipe,
     DropdownUf,
+    Busca,
   ],
   imports: [
     BrowserModule,
