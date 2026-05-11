@@ -3,6 +3,7 @@ import { PromocaoService } from '../../core/services/promocao/promocao.service';
 import { Promocao } from '../../core/types/promocao';
 import { Depoimentos } from '../../core/types/depoimentos';
 import { DepoimentosService } from '../../core/services/depoimentos/depoimentos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class Home implements OnInit {
   constructor(
     private servicoPromocao: PromocaoService,
     private servicoDepoimentos: DepoimentosService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +29,9 @@ export class Home implements OnInit {
     this.servicoDepoimentos.listar().subscribe((resposta) => {
       this.depoimentos.set(resposta);
     });
+  }
+
+  navegarParaBusca(ev: any) {
+    this.router.navigate(['busca']);
   }
 }

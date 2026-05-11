@@ -1,6 +1,6 @@
 <app-banner src="assets/imagens/banner-homepage.png" alt="Banner da aplicação Jornada" />
 <app-container>
-    <app-form-busca />
+    <app-form-busca (realizarBusca)="navegarParaBusca($event)" />
     <h2>Promoções</h2>
     <div class="card-wrapper">
         @for (promocao of promocoes(); track $index) {
