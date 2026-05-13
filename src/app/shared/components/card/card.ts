@@ -7,5 +7,5 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-  variant = input.required<'primary' | 'secondary'>;
+  @Input({ required: true }) variant!: 'primary' | 'secondary';
 }
