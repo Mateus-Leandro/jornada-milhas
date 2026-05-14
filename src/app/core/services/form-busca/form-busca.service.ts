@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Modal } from '../../../shared/components/modal/modal';
 import { MatChipSelectionChange } from '@angular/material/chips';
+import { DadosBusca } from '../../types/busca';
+import { UnidadeFederativa } from '../../types/unidade-federativa';
 
 export type TipoPassagem = 'Executiva' | 'Econômica';
 
@@ -18,12 +20,12 @@ export class FormBuscaService {
 
     this.formBusca = new FormGroup({
       somenteIda,
-      origem: new FormControl(null, [Validators.required]),
-      destino: new FormControl(null, [Validators.required]),
+      origem: new FormControl<UnidadeFederativa | null>(null, [Validators.required]),
+      destino: new FormControl<UnidadeFederativa | null>(null, [Validators.required]),
       tipo: new FormControl<TipoPassagem>('Econômica'),
-      adultos: new FormControl(1),
-      criancas: new FormControl(0),
-      bebes: new FormControl(0),
+      passageirosAdultos: new FormControl(1),
+      passageirosCriancas: new FormControl(0),
+      passageirosBebes: new FormControl(0),
       dataIda: new FormControl(null, [Validators.required]),
       dataVolta,
     });
@@ -47,12 +49,37 @@ export class FormBuscaService {
     });
   }
 
-  obterControle(nome: string): FormControl {
+  obterControle<T>(nome: string): FormControl {
     const control = this.formBusca.get(nome);
     if (!control) {
       throw new Error(`FormControl com nome "${nome}" não existe.`);
     }
-    return control as FormControl;
+    return control as FormControl<T>;
+  }
+
+  obterDadosDeBusca(): DadosBusca {
+    const dataIdaControl = this.obterControle<Date>('dataIda').value;
+
+    const dadosBusca: DadosBusca = {
+      pagina: 1,
+      porPagina: 50,
+      somenteIda: this.obterControle<boolean>('somenteIda').value,
+      origemId: this.obterControle<UnidadeFederativa>('origem').value?.id,
+      destinoId: this.obterControle<UnidadeFederativa>('destino').value?.id,
+      tipo: this.obterControle<TipoPassagem>('tipo').value,
+      passageirosAdultos: this.obterControle<number>('passageirosAdultos').value,
+      passageirosCriancas: this.obterControle<number>('passageirosCriancas').value,
+      passageirosBebes: this.obterControle<number>('passageirosBebes').value,
+      dataIda: dataIdaControl.toISOString(),
+    };
+
+    const dataVoltaControl = this.obterControle<Date>('dataVolta').value;
+
+    if (dataVoltaControl) {
+      dadosBusca.dataVolta = dataVoltaControl.toISOString();
+    }
+
+    return dadosBusca;
   }
 
   getDescricaoPassageiros(): string {
@@ -103,15 +130,15 @@ export class FormBuscaService {
   }
 
   get adultos(): number {
-    return this.formBusca.get('adultos')?.value || 0;
+    return this.formBusca.get('passageirosAdultos')?.value || 0;
   }
 
   get criancas(): number {
-    return this.formBusca.get('criancas')?.value || 0;
+    return this.formBusca.get('passageirosCriancas')?.value || 0;
   }
 
   get bebes(): number {
-    return this.formBusca.get('bebes')?.value || 0;
+    return this.formBusca.get('passageirosBebes')?.value || 0;
   }
 
   get formEstaValido() {

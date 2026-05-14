@@ -16,7 +16,7 @@ export class FormBusca {
       return alert('O formulário precisa ser preenchido!');
     }
 
-    const formBuscaValue = this.formBuscaService.formBusca.value;
+    const formBuscaValue = this.formBuscaService.obterDadosDeBusca();
     this.realizarBusca.emit(formBuscaValue);
   }
 }

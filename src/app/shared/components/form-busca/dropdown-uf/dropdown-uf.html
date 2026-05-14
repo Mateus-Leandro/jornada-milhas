@@ -5,9 +5,11 @@
     </mat-icon>
     <input matInput [matAutocomplete]="auto" [formControl]="control()" ngDefaultControl>
     <mat-icon matSuffix>search</mat-icon>
-    <mat-autocomplete #auto="matAutocomplete">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUf">
         @for (estado of opcoesFiltradas(); track estado.nome) {
-        <mat-option [value]="estado.nome">{{estado.nome}}</mat-option>
+        <mat-option [value]="estado">
+            {{ estado.nome }}
+        </mat-option>
         }
     </mat-autocomplete>
 </mat-form-field>

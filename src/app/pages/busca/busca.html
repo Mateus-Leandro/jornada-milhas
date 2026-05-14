@@ -1,8 +1,8 @@
 <div class="busca-page">
         <app-banner src="assets/imagens/banner-busca.png" alt="" />
-        <app-container >
-                <app-form-busca></app-form-busca>
-                <section >
+        <app-container>
+                <app-form-busca (realizarBusca)="busca($event)"></app-form-busca>
+                <section>
                         @for (passagem of passagens; track $index) {
                         <app-card-passagem [passagem]="passagem" />
                         }
