@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Modal } from '../../../shared/components/modal/modal';
 import { MatChipSelectionChange } from '@angular/material/chips';
@@ -13,14 +13,31 @@ export class FormBuscaService {
   formBusca: FormGroup;
 
   constructor(private dialog: MatDialog) {
+    const somenteIda = new FormControl(false, [Validators.required]);
+    const dataVolta = new FormControl(null, [Validators.required]);
+
     this.formBusca = new FormGroup({
-      somenteIda: new FormControl(false),
-      origem: new FormControl(null),
-      destino: new FormControl(null),
+      somenteIda,
+      origem: new FormControl(null, [Validators.required]),
+      destino: new FormControl(null, [Validators.required]),
       tipo: new FormControl<TipoPassagem>('Econômica'),
       adultos: new FormControl(1),
       criancas: new FormControl(0),
       bebes: new FormControl(0),
+      dataIda: new FormControl(null, [Validators.required]),
+      dataVolta,
+    });
+
+    somenteIda.valueChanges.subscribe((somenteIda) => {
+      if (somenteIda) {
+        dataVolta.disable();
+        dataVolta.clearValidators();
+      } else {
+        dataVolta.enable();
+        dataVolta.setValidators([Validators.required]);
+      }
+
+      dataVolta.updateValueAndValidity();
     });
   }
 
@@ -95,6 +112,10 @@ export class FormBuscaService {
 
   get bebes(): number {
     return this.formBusca.get('bebes')?.value || 0;
+  }
+
+  get formEstaValido() {
+    return this.formBusca.valid;
   }
 
   alterarTipo(evento: MatChipSelectionChange, tipoPassagem: TipoPassagem) {
