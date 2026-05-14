@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { LOCALE_ID, NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -31,6 +31,11 @@ import { BrlPipe } from './shared/pipes/brl-pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUf } from './shared/components/form-busca/dropdown-uf/dropdown-uf';
 import { Busca } from './pages/busca/busca';
+import { CardPassagem } from './shared/components/card-passagem/card-passagem';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -49,6 +54,7 @@ import { Busca } from './pages/busca/busca';
     BrlPipe,
     DropdownUf,
     Busca,
+    CardPassagem,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +77,7 @@ import { Busca } from './pages/busca/busca';
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
   ],
   bootstrap: [App],
 })
