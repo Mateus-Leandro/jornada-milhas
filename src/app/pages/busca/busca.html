@@ -2,10 +2,15 @@
         <app-banner src="assets/imagens/banner-busca.png" alt="" />
         <app-container>
                 <app-form-busca (realizarBusca)="busca($event)"></app-form-busca>
-                <section>
-                        @for (passagem of passagens; track $index) {
-                        <app-card-passagem [passagem]="passagem" />
-                        }
+                <section class="conteudo">
+                        <aside class="filtros-adicionais">
+                                <app-filtros-complementares (realizarBusca)="busca($event)" />
+                        </aside>
+                        <div class="passagens">
+                                @for (passagem of passagens; track $index) {
+                                <app-card-passagem [passagem]="passagem" />
+                                }
+                        </div>
                 </section>
         </app-container>
 </div>

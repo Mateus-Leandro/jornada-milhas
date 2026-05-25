@@ -6,6 +6,6 @@ import { Component, input, Input } from '@angular/core';
   templateUrl: './card.html',
   styleUrl: './card.scss',
 })
-export class Card {
+export class CardComponent {
   @Input({ required: true }) variant!: 'primary' | 'secondary';
 }

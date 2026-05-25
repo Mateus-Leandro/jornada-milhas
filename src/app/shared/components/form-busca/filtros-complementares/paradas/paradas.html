@@ -1,0 +1,12 @@
+<section class="paradas">
+  <app-label texto="Paradas" />
+  <div class="checkbox-group">
+    @for (opcao of opcoes; track $index) {
+    <p>
+      <mat-checkbox color="primary">
+        {{ opcao.display }}
+      </mat-checkbox>
+    </p>
+    }
+  </div>
+</section>

@@ -6,7 +6,7 @@ import { App } from './app';
 import { Header } from './shared/components/header/header';
 import { Footer } from './shared/components/footer/footer';
 import { Banner } from './shared/components/banner/banner';
-import { Card } from './shared/components/card/card';
+import { CardComponent } from './shared/components/card/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Home } from './pages/home/home';
@@ -30,10 +30,17 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { BrlPipe } from './shared/pipes/brl-pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUf } from './shared/components/form-busca/dropdown-uf/dropdown-uf';
+import { FiltrosComplementares } from './shared/components/form-busca/filtros-complementares/filtros-complementares';
 import { Busca } from './pages/busca/busca';
 import { CardPassagem } from './shared/components/card-passagem/card-passagem';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { Companhias } from './shared/components/form-busca/filtros-complementares/companhias/companhias';
+import { Paradas } from './shared/components/form-busca/filtros-complementares/paradas/paradas';
+import { Label } from './shared/components/form-busca/filtros-complementares/label/label';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Precos } from './shared/components/form-busca/filtros-complementares/precos/precos';
+import { MatSliderModule } from '@angular/material/slider';
 
 registerLocaleData(localePt);
 
@@ -43,7 +50,6 @@ registerLocaleData(localePt);
     Header,
     Footer,
     Banner,
-    Card,
     Home,
     Container,
     CardBusca,
@@ -53,8 +59,14 @@ registerLocaleData(localePt);
     SeletorQuantidade,
     BrlPipe,
     DropdownUf,
+    FiltrosComplementares,
     Busca,
     CardPassagem,
+    CardComponent,
+    Companhias,
+    Paradas,
+    Label,
+    Precos,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +83,9 @@ registerLocaleData(localePt);
     MatDialogModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatSliderModule,
   ],
   providers: [
     provideNativeDateAdapter(),
