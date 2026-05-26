@@ -3,6 +3,7 @@ import { PassagensService } from '../../core/services/passagens/passagens';
 import { Passagem } from '../../core/types/passagens';
 import { FormBuscaService } from '../../core/services/form-busca/form-busca.service';
 import { DadosBusca } from '../../core/types/busca';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-busca',
@@ -32,11 +33,18 @@ export class Busca implements OnInit {
       ? this.formBuscaService.obterDadosDeBusca()
       : buscaPadrao;
 
-    this.passagensService.getPassagens(busca).subscribe((res) => {
-      console.log(res);
-      this.passagens = res.resultado;
-      this.cdr.detectChanges();
-    });
+    this.passagensService
+      .getPassagens(busca)
+      .pipe(take(1))
+      .subscribe((res) => {
+        console.log(res);
+        this.passagens = res.resultado;
+        this.formBuscaService.formBusca.patchValue({
+          precoMin: res.precoMin,
+          precoMax: res.precoMax,
+        });
+        this.cdr.detectChanges();
+      });
   }
 
   busca(ev: DadosBusca) {
