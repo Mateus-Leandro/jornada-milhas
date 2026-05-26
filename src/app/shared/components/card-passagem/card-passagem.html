@@ -1,9 +1,9 @@
 <app-card variant="secondary">
   <div class="card-content">
-    
+
     <div class="details-section">
-      <h2 class="title">{{ passagem.tipo || 'Ida e Volta' }}</h2>
-      
+      <h2 class="title">{{ passagem.dataIda && passagem.dataVolta ? 'Ida e Volta': 'Somente Ida' }}</h2>
+
       <hr class="divider" />
 
       <div class="info-grid">
@@ -24,10 +24,12 @@
           <span class="label">Ida</span>
           <div class="chip">{{ passagem.dataIda | date:'dd/MM' }}</div>
         </div>
+        @if (this.passagem.dataVolta) {
         <div class="info-column">
           <span class="label">Volta</span>
           <div class="chip">{{ passagem.dataVolta | date:'dd/MM' }}</div>
         </div>
+        }
       </div>
     </div>
 
@@ -38,7 +40,7 @@
 
       <div class="price-breakdown">
         <div class="breakdown-row">
-          <span>1 adulto, econômica</span>
+          <span>{{passagem.tipo}}</span>
           <span>{{ (passagem.precoIda + passagem.precoVolta) | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
         </div>
         <div class="breakdown-row">

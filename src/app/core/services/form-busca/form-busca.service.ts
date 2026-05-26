@@ -28,6 +28,8 @@ export class FormBuscaService {
       passageirosBebes: new FormControl(0),
       dataIda: new FormControl(null, [Validators.required]),
       dataVolta,
+      conexoes: new FormControl(null),
+      companhias: new FormControl(null),
     });
 
     somenteIda.valueChanges.subscribe((somenteIda) => {
@@ -77,6 +79,16 @@ export class FormBuscaService {
 
     if (dataVoltaControl) {
       dadosBusca.dataVolta = dataVoltaControl.toISOString();
+    }
+
+    const conexoesControl = this.obterControle<number>('conexoes');
+    if (conexoesControl.value) {
+      dadosBusca.conexoes = conexoesControl.value;
+    }
+
+    const companhiaControl = this.obterControle<number[]>('companhias');
+    if (companhiaControl.value) {
+      dadosBusca.companhiasId = companhiaControl.value;
     }
 
     return dadosBusca;

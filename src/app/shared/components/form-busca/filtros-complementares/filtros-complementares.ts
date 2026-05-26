@@ -8,7 +8,7 @@ import { FormBuscaService } from '../../../../core/services/form-busca/form-busc
   styleUrl: './filtros-complementares.scss',
 })
 export class FiltrosComplementares {
-  constructor(private formBuscaService: FormBuscaService) {}
+  constructor(public formBuscaService: FormBuscaService) {}
   @Output() realizarBusca = new EventEmitter();
 
   busca() {
