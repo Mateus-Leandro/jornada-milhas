@@ -20,4 +20,8 @@ export interface Passagem {
   orcamento: Orcamento[];
 }
 
-
+export interface Destaques {
+  maisRapida: Passagem;
+  maisBarata: Passagem;
+  sugerida: Passagem;
+}

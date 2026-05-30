@@ -41,6 +41,7 @@ import { Label } from './shared/components/form-busca/filtros-complementares/lab
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Precos } from './shared/components/form-busca/filtros-complementares/precos/precos';
 import { MatSliderModule } from '@angular/material/slider';
+import { CardSugestaoPassagem } from './shared/components/card-sugestao-passagem/card-sugestao-passagem';
 
 registerLocaleData(localePt);
 
@@ -67,6 +68,7 @@ registerLocaleData(localePt);
     Paradas,
     Label,
     Precos,
+    CardSugestaoPassagem,
   ],
   imports: [
     BrowserModule,

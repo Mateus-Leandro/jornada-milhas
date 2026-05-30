@@ -2,11 +2,25 @@
         <app-banner src="assets/imagens/banner-busca.png" alt="" />
         <app-container>
                 <app-form-busca (realizarBusca)="busca($event)"></app-form-busca>
+
                 <section class="conteudo">
                         <aside class="filtros-adicionais">
                                 <app-filtros-complementares (realizarBusca)="busca($event)" />
                         </aside>
                         <div class="passagens">
+                                @if (destaques) {
+                                <div class="destaques">
+                                        <app-card-sugestao-passagem titulo="Menor Preço"
+                                                [preco]="destaques.maisBarata.total"
+                                                [tempo]="destaques.maisBarata.tempoVoo" />
+                                        <app-card-sugestao-passagem titulo="Recomendado"
+                                                [preco]="destaques.sugerida.total"
+                                                [tempo]="destaques.sugerida.tempoVoo" />
+                                        <app-card-sugestao-passagem titulo="Menor Tempo"
+                                                [preco]="destaques.maisRapida.total"
+                                                [tempo]="destaques.maisRapida.tempoVoo" />
+                                </div>
+                                }
                                 @for (passagem of passagens; track $index) {
                                 <app-card-passagem [passagem]="passagem" />
                                 }

@@ -1,0 +1,26 @@
+.sugestao-passagem {
+  display: flex;
+  min-width: 230px;
+  justify-content: center;
+  font-weight: 400;
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .preco {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .tempo {
+    font-size: 16px;
+  }
+
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 3px;
+  }
+}
